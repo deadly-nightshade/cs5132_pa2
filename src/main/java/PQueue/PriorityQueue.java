@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * @param <S> Generic type of priority, must extend Comparable
  */
 public class PriorityQueue <T, S extends Comparable<S>>{
-    ArrayList<Pair<T,S>> heap;
+    protected ArrayList<Pair<T,S>> heap;
 
     /**
      * Basic constructor for the priority queue.
