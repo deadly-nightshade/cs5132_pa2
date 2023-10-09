@@ -64,6 +64,7 @@ public class MainController {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Add Patient");
         stage.setScene(scene);
+        stage.setResizable(false);
         //stage.setOnHiding(windowEvent -> updateTable());
         childController = fxmlLoader.getController();
         childController.setParentController(this);
