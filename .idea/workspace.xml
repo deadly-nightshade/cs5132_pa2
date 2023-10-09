@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1e545798-a49e-4cef-aaa3-6f4935558383" name="Changes" comment="Implemented basic Patient class and updated UI">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/patients.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="1e545798-a49e-4cef-aaa3-6f4935558383" name="Changes" comment="Updated Patient and UI">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/PatientEntry.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/HelloApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/PatientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/me/squiddy/pa2/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/me/squiddy/pa2/main-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/me/squiddy/pa2/patient-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/me/squiddy/pa2/patient-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696663752731</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Updated Patient and UI">
+      <option name="closed" value="true" />
+      <created>1696819841637</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1696819841637</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,6 +146,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implemented basic Patient class and updated UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented basic Patient class and updated UI" />
+    <MESSAGE value="Updated Patient and UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Patient and UI" />
   </component>
 </project>

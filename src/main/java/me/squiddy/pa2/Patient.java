@@ -9,7 +9,7 @@ public class Patient {
     private int age;
     private LocalDate registrationDate, deathDate;
 
-    public Patient(String name, int age, int organ, LocalDate registrationDate, LocalDate deathDate) {
+    public Patient(String name, int age, LocalDate registrationDate, LocalDate deathDate) {
         this.name = name;
         this.age = age;
         this.registrationDate = registrationDate;
