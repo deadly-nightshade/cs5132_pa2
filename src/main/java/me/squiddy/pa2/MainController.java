@@ -1,5 +1,7 @@
 package me.squiddy.pa2;
 
+import PQueue.PQueueViewable;
+import PQueue.Pair;
 import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
@@ -7,6 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -17,6 +20,7 @@ import java.time.LocalDate;
 
 public class MainController {
     // initialise main scene
+    private PQueueViewable<Patient, Integer> pq;
 
     @FXML
     public TableView<PatientEntry> table;
@@ -28,6 +32,11 @@ public class MainController {
     public TableColumn<PatientEntry, Double> priority;
     private ObservableList<PatientEntry> patientList = FXCollections.observableArrayList();
     private Property<ObservableList<PatientEntry>> patientListProperty = new SimpleObjectProperty<>(patientList);
+
+    void initData(){
+        pq = new PQueueViewable<>();
+        System.out.println("test");
+    }
 
     @FXML
     void updateTable() {
@@ -54,7 +63,21 @@ public class MainController {
     }
 
     @FXML
-    void dequeuePatient() {
-        // dequeues a patient and updates table
+    void dequeuePatient(){
+        if(pq.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("No patients left to dequeue!");
+            alert.showAndWait();
+        }
+        else{
+            Patient p = pq.dequeue().getLeft();
+            String message = "Name: " + p.getName() + "\nAge: " + p.getAge() + "\nRegistration Date: " + p.getRegistrationDate() + "\nDeath Date: " + p.getDeathDate();
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Patient removed");
+            alert.setHeaderText(message);
+            alert.showAndWait();
+            updateTable();
+        }
     }
 }
