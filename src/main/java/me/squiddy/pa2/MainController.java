@@ -1,5 +1,6 @@
 package me.squiddy.pa2;
 
+import PQueue.PQueueViewable;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -10,9 +11,15 @@ import java.io.IOException;
 
 public class MainController {
     // initialise main scene
+    private PQueueViewable<Patient, Integer> pq;
 
     @FXML
     public TableView table;
+
+    void initData(){
+        pq = new PQueueViewable<>();
+        System.out.println("test");
+    }
 
     @FXML
     void updateTable() {
