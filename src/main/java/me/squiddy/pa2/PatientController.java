@@ -3,7 +3,7 @@ package me.squiddy.pa2;
 import javafx.fxml.FXML;
 
 public class PatientController {
-    // initialise choices for the choicebox and spinner
+    // initialise scene to show patient info
 
     // load patient information?
     Patient patient;

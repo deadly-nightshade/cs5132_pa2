@@ -1,21 +1,19 @@
 package me.squiddy.pa2;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Patient {
     // contains the information and priority of a patient
     private String name;
-    private int age, organ;
-    private Date registrationDate, deathDate;
-    private double priority;
+    private int age;
+    private LocalDate registrationDate, deathDate;
 
-    public Patient(String name, int age, int organ, Date registrationDate, Date deathDate) {
+    public Patient(String name, int age, int organ, LocalDate registrationDate, LocalDate deathDate) {
         this.name = name;
         this.age = age;
-        this.organ = organ;
         this.registrationDate = registrationDate;
         this.deathDate = deathDate;
-        priority = calculatePriority();
     }
 
     public String getName() {
@@ -26,47 +24,44 @@ public class Patient {
         this.name = name;
     }
 
-    public int getOrgan() {
-        return organ;
-    }
-
-    public void setOrgan(int organ) {
-        this.organ = organ;
-    }
-
     public int getAge() {
         return age;
     }
 
     public void setAge(int age) {
         this.age = age;
-        priority = calculatePriority();
     }
 
-    public Date getRegistrationDate() {
+    public LocalDate getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(Date registrationDate) {
+    public void setRegistrationDate(LocalDate registrationDate) {
         this.registrationDate = registrationDate;
-        priority = calculatePriority();
     }
 
-    public Date getDeathDate() {
+    public LocalDate getDeathDate() {
         return deathDate;
     }
 
-    public void setDeathDate(Date deathDate) {
+    public void setDeathDate(LocalDate deathDate) {
         this.deathDate = deathDate;
-        priority = calculatePriority();
     }
 
-    public double getPriority() {
-        return priority;
+    public double calculatePriority() {
+        // calculates the priority of a patient
+        // uses their age, days they have left without the organ and how long they have been waiting for
+        LocalDate currentDate = LocalDate.now();
+        int daysWaited = (int) ChronoUnit.DAYS.between(registrationDate, currentDate);
+        int daysLeft = (int) ChronoUnit.DAYS.between(currentDate, deathDate);
+        return (double) daysWaited/daysLeft-age/75.0;
     }
 
-    private double calculatePriority() {
-        // calculates the priority of a patient using their age, death date and registration date
-        return 0;
+    @Override
+    public String toString() {
+        return "Name: " + name +
+                ", Age: " + age +
+                ", Registration Date: " + registrationDate +
+                ", Death Date: " + deathDate;
     }
 }
