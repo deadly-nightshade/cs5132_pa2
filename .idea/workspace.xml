@@ -8,6 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/PatientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/PatientEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/PatientEntry.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,7 +139,15 @@
       <option name="project" value="LOCAL" />
       <updated>1696868465045</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="(feat): Skeleton implementation of adding to the priority queue">
+      <option name="closed" value="true" />
+      <created>1696870296032</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1696870296032</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,6 +165,7 @@
     <MESSAGE value="Implemented basic Patient class and updated UI" />
     <MESSAGE value="(feat): Initialisation of PQueue in MainController on startup" />
     <MESSAGE value="(feat): Basic checking of patient addition info" />
-    <option name="LAST_COMMIT_MESSAGE" value="(feat): Basic checking of patient addition info" />
+    <MESSAGE value="(feat): Skeleton implementation of adding to the priority queue" />
+    <option name="LAST_COMMIT_MESSAGE" value="(feat): Skeleton implementation of adding to the priority queue" />
   </component>
 </project>

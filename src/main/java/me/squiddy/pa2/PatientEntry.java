@@ -12,6 +12,12 @@ public class PatientEntry {
         this.priority = patient.calculatePriority();
     }
 
+    public PatientEntry(int rank, Patient patient, double priority){
+        this.rank = rank;
+        this.info = patient.toString();
+        this.priority = priority;
+    }
+
     public int getRank() {
         return rank;
     }

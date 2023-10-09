@@ -16,10 +16,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class MainController {
     // initialise main scene
-    private PQueueViewable<Patient, Integer> pq;
+    private PQueueViewable<Patient, Double> pq;
 
     private PatientController childController;
 
@@ -41,6 +42,13 @@ public class MainController {
     @FXML
     void updateTable() {
         // updates the table
+        //converts all pq into patiententries
+        ArrayList<Pair<Patient,Double>> list = pq.getQueue();
+        patientList.clear();
+        for(int i = 0; i < list.size(); i++){
+            PatientEntry temp = new PatientEntry(i+1, list.get(i).getLeft(), list.get(i).getRight());
+            patientList.add(temp);
+        }
         rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         info.setCellValueFactory(new PropertyValueFactory<>("info"));
         priority.setCellValueFactory(new PropertyValueFactory<>("priority"));
@@ -81,7 +89,8 @@ public class MainController {
         }
     }
 
-    void addToPQ(Patient p, int priority){
-        //TODO add to pq and update table
+    void addToPQ(Patient p, double priority){
+        pq.enqueue(p, priority);
+        updateTable();
     }
 }

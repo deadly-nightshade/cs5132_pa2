@@ -64,8 +64,7 @@ public class PatientController {
             //TODO update data here
             System.out.println("ok");
             patient = new Patient(NameField.getText(), AgeSelect.getValue(), DateAddedPicker.getValue(), DeathDatePicker.getValue());
-            int priority = calculatePriority();
-            parentController.addToPQ(patient, priority);
+            parentController.addToPQ(patient, patient.calculatePriority());
         }
         else if(invalid){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -79,12 +78,6 @@ public class PatientController {
             alert.setHeaderText(msg + " cannot be empty!");
             alert.showAndWait();
         }
-    }
-
-
-    int calculatePriority() {
-        //TODO priority calculation
-        return 1;
     }
 
     void setParentController(MainController c){
