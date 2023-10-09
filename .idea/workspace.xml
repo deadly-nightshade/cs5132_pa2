@@ -5,14 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e545798-a49e-4cef-aaa3-6f4935558383" name="Changes" comment="Implemented basic Patient class and updated UI">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/patients.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/Patient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/Patient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/me/squiddy/pa2/main-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/me/squiddy/pa2/main-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +38,9 @@
         <option name="url" value="https://github.com/deadly-nightshade/cs5132_pa2.git" />
       </UrlAndAccount>
     </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
