@@ -34,7 +34,6 @@ public class MainController {
 
     void initData(){
         pq = new PQueueViewable<>();
-        System.out.println("test");
     }
 
     @FXML
@@ -55,6 +54,7 @@ public class MainController {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Add Patient");
         stage.setScene(scene);
+        stage.setOnHiding(windowEvent -> updateTable());
         stage.show();
     }
 

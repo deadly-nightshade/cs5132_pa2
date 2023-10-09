@@ -7,16 +7,16 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="223.0" prefWidth="492.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.squiddy.pa2.PatientController">
+<AnchorPane prefHeight="223.0" prefWidth="492.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="me.squiddy.pa2.PatientController">
    <children>
       <Text layoutX="35.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Patient Name: " />
-      <TextField layoutX="113.0" layoutY="30.0" />
+      <TextField fx:id="NameField" layoutX="113.0" layoutY="30.0" />
       <Text layoutX="35.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated date of death:" />
-      <Button layoutX="414.0" layoutY="178.0" mnemonicParsing="false" text="Save" />
+      <Button layoutX="414.0" layoutY="178.0" mnemonicParsing="false" onAction="#savePatient" text="Save" />
       <Text layoutX="35.0" layoutY="139.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date added to waiting list:" />
-      <Spinner editable="true" layoutX="67.0" layoutY="90.0" prefHeight="26.0" prefWidth="64.0" />
+      <Spinner fx:id="AgeSelect" editable="true" layoutX="67.0" layoutY="90.0" prefHeight="26.0" prefWidth="64.0" />
       <Text layoutX="35.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age:" />
-      <DatePicker layoutX="182.0" layoutY="122.0" />
-      <DatePicker layoutX="182.0" layoutY="152.0" />
+      <DatePicker fx:id="DateAddedPicker" layoutX="182.0" layoutY="122.0" />
+      <DatePicker fx:id="DeathDatePicker" layoutX="182.0" layoutY="152.0" />
    </children>
 </AnchorPane>
