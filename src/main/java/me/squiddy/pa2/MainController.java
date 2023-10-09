@@ -21,6 +21,8 @@ public class MainController {
     // initialise main scene
     private PQueueViewable<Patient, Integer> pq;
 
+    private PatientController childController;
+
     @FXML
     public TableView<PatientEntry> table;
     @FXML
@@ -54,7 +56,9 @@ public class MainController {
         Scene scene = new Scene(fxmlLoader.load());
         stage.setTitle("Add Patient");
         stage.setScene(scene);
-        stage.setOnHiding(windowEvent -> updateTable());
+        //stage.setOnHiding(windowEvent -> updateTable());
+        childController = fxmlLoader.getController();
+        childController.setParentController(this);
         stage.show();
     }
 
@@ -75,5 +79,9 @@ public class MainController {
             alert.showAndWait();
             updateTable();
         }
+    }
+
+    void addToPQ(Patient p, int priority){
+        //TODO add to pq and update table
     }
 }

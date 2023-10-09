@@ -8,8 +8,10 @@ import java.text.NumberFormat;
 public class PatientController {
     // initialise scene to show patient info
 
-    // load patient information?
-    Patient patient;
+    //parent controller
+    private MainController parentController;
+
+    private Patient patient;
 
     @FXML
     TextField NameField;
@@ -61,6 +63,9 @@ public class PatientController {
 
             //TODO update data here
             System.out.println("ok");
+            patient = new Patient(NameField.getText(), AgeSelect.getValue(), DateAddedPicker.getValue(), DeathDatePicker.getValue());
+            int priority = calculatePriority();
+            parentController.addToPQ(patient, priority);
         }
         else if(invalid){
             Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -76,13 +81,13 @@ public class PatientController {
         }
     }
 
-    @FXML
-    void updatePriority() {
-
-    }
-
 
     int calculatePriority() {
+        //TODO priority calculation
         return 1;
+    }
+
+    void setParentController(MainController c){
+        parentController = c;
     }
 }
