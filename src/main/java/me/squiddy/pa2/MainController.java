@@ -35,8 +35,18 @@ public class MainController {
     public TableColumn<PatientEntry, String> info;
     @FXML
     public TableColumn<PatientEntry, Double> priority;
-    private ObservableList<PatientEntry> patientList = FXCollections.observableArrayList();
-    private Property<ObservableList<PatientEntry>> patientListProperty = new SimpleObjectProperty<>(patientList);
+    private ObservableList<PatientEntry> patientList;
+    private Property<ObservableList<PatientEntry>> patientListProperty;
+
+    @FXML
+    public void initialize() {
+        patientList = FXCollections.observableArrayList();
+        patientListProperty = new SimpleObjectProperty<>(patientList);
+        table.itemsProperty().bind(patientListProperty);
+        rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
+        info.setCellValueFactory(new PropertyValueFactory<>("info"));
+        priority.setCellValueFactory(new PropertyValueFactory<>("priority"));
+    }
 
     void initData(){
         pq = new PQueueViewable<>();
@@ -45,18 +55,13 @@ public class MainController {
     @FXML
     void updateTable() {
         // updates the table
-        //converts all pq into patiententries
+        // converts all elements in priority queue into patient entries
         ArrayList<Pair<Patient,Double>> list = pq.getQueue();
         patientList.clear();
         for(int i = 0; i < list.size(); i++){
             PatientEntry temp = new PatientEntry(i+1, list.get(i).getLeft(), list.get(i).getRight());
             patientList.add(temp);
         }
-        rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
-        info.setCellValueFactory(new PropertyValueFactory<>("info"));
-        priority.setCellValueFactory(new PropertyValueFactory<>("priority"));
-        table.itemsProperty().bind(patientListProperty);
-        table.refresh();
     }
 
     @FXML
@@ -68,7 +73,6 @@ public class MainController {
         stage.setTitle("Add Patient");
         stage.setScene(scene);
         stage.setResizable(false);
-        //stage.setOnHiding(windowEvent -> updateTable());
         childController = fxmlLoader.getController();
         childController.setParentController(this);
         stage.show();
