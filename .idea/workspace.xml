@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1e545798-a49e-4cef-aaa3-6f4935558383" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/susMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/MainController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/PatientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/PatientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/PatientEntry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/squiddy/pa2/PatientEntry.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,15 +62,19 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
     "dart.analysis.tool.window.visible": "false",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/kaiwen/AppData/Local/SceneBuilder/SceneBuilder.exe",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "SDKs",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
-    "show.migrate.to.gradle.popup": "false"
+    "show.migrate.to.gradle.popup": "false",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager">
@@ -114,6 +116,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696301126863</updated>
+      <workItem from="1696904243089" duration="334000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented basic Patient class and updated UI">
       <option name="closed" value="true" />
@@ -147,8 +150,27 @@
       <option name="project" value="LOCAL" />
       <updated>1696870296032</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="(feat): Full adding complete">
+      <option name="closed" value="true" />
+      <created>1696873854044</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1696873854044</updated>
+    </task>
+    <task id="LOCAL-00006" summary="(fix): increased fonts of patient page, also made unresizeable">
+      <option name="closed" value="true" />
+      <created>1696874201624</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696874201624</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -166,6 +188,9 @@
     <MESSAGE value="(feat): Initialisation of PQueue in MainController on startup" />
     <MESSAGE value="(feat): Basic checking of patient addition info" />
     <MESSAGE value="(feat): Skeleton implementation of adding to the priority queue" />
-    <option name="LAST_COMMIT_MESSAGE" value="(feat): Skeleton implementation of adding to the priority queue" />
+    <MESSAGE value="(feat): Full adding complete" />
+    <MESSAGE value="(fix): increased fonts of patient page" />
+    <MESSAGE value="(fix): increased fonts of patient page, also made unresizeable" />
+    <option name="LAST_COMMIT_MESSAGE" value="(fix): increased fonts of patient page, also made unresizeable" />
   </component>
 </project>
