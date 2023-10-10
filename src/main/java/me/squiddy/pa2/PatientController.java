@@ -76,8 +76,6 @@ public class PatientController {
                 return;
             }
 
-            //TODO update data here
-            System.out.println("ok");
             patient = new Patient(NameField.getText(), AgeSelect.getValue(), DateAddedPicker.getValue(), DeathDatePicker.getValue());
             parentController.addToPQ(patient, patient.calculatePriority());
             Stage stage = (Stage) NameField.getScene().getWindow();
