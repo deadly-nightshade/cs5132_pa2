@@ -2,8 +2,8 @@ package me.squiddy.pa2;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-
-import java.text.NumberFormat;
+import javafx.stage.Stage;
+import java.time.LocalDate;
 
 public class PatientController {
     // initialise scene to show patient info
@@ -59,12 +59,29 @@ public class PatientController {
                 alert.setTitle("Error");
                 alert.setHeaderText("Death date is before patient added!");
                 alert.showAndWait();
+                return;
+            }
+            if(DateAddedPicker.getValue().isAfter(LocalDate.now())){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Registration date is after today's date!");
+                alert.showAndWait();
+                return;
+            }
+            if(DeathDatePicker.getValue().isBefore(LocalDate.now())){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("Death date is before today's date!");
+                alert.showAndWait();
+                return;
             }
 
             //TODO update data here
             System.out.println("ok");
             patient = new Patient(NameField.getText(), AgeSelect.getValue(), DateAddedPicker.getValue(), DeathDatePicker.getValue());
             parentController.addToPQ(patient, patient.calculatePriority());
+            Stage stage = (Stage) NameField.getScene().getWindow();
+            stage.close();
         }
         else if(invalid){
             Alert alert = new Alert(Alert.AlertType.ERROR);

@@ -54,7 +54,7 @@ public class Patient {
         LocalDate currentDate = LocalDate.now();
         int daysWaited = (int) ChronoUnit.DAYS.between(registrationDate, currentDate);
         int daysLeft = (int) ChronoUnit.DAYS.between(currentDate, deathDate);
-        return (double) daysWaited/daysLeft-age/75.0;
+        return (double) daysWaited/(daysLeft+1)-age/75.0;
     }
 
     @Override
