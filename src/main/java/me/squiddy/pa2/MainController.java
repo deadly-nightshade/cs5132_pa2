@@ -6,11 +6,13 @@ import javafx.beans.property.Property;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -19,6 +21,7 @@ import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainController {
     static String fileName = "";
@@ -46,6 +49,24 @@ public class MainController {
         rank.setCellValueFactory(new PropertyValueFactory<>("rank"));
         info.setCellValueFactory(new PropertyValueFactory<>("info"));
         priority.setCellValueFactory(new PropertyValueFactory<>("priority"));
+        table.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+                    PatientEntry entry = table.getSelectionModel().getSelectedItem();
+                    String[] arr = entry.getInfo().split(": ");
+                    String name = arr[1].substring(0, arr[1].length()-5);
+                    String age = arr[2].substring(0, arr[2].length()-19);
+                    String dateAdded = arr[3].substring(0, arr[3].length()-12);
+                    String dateDeath = arr[4];
+                    String message = "Name: " + name + "\nAge: " + age + "\nRegistration Date: " + dateAdded + "\nDeath Date: " + dateDeath;
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Patient info");
+                    alert.setHeaderText(message);
+                    alert.showAndWait();
+                }
+            }
+        });
     }
 
     void initData(){
