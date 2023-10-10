@@ -9,16 +9,19 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+import java.io.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class MainController {
+    static String fileName = "";
     // initialise main scene
     private PQueueViewable<Patient, Double> pq;
 
@@ -94,4 +97,93 @@ public class MainController {
         pq.enqueue(p, priority);
         updateTable();
     }
+
+    @FXML
+    void openFile() {
+        FileChooser fileChooser = new FileChooser();
+
+        //Set extension filter for text files
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("CSV files (*.csv)", "*.csv");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        //Show save file dialog
+        File file = fileChooser.showOpenDialog(table.getScene().getWindow());
+        fileName = file.getPath();
+        System.out.println(fileName);
+
+        // read file
+        FileReader fr = null;
+        BufferedReader reader = null;
+        try {
+            fr = new FileReader(fileName);
+            reader = new BufferedReader(fr);
+            String line;
+            pq = new PQueueViewable<>();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+                // line format
+                // name, age, regisDate, deathDate, priority
+                String[] hold = line.split(",");
+                LocalDate regisDate = LocalDate.parse(hold[2], formatter);
+                LocalDate deathDate = LocalDate.parse(hold[3], formatter);
+
+                Patient patient = new Patient(hold[0], Integer.parseInt(hold[1]), regisDate, deathDate);
+                double priority = Double.parseDouble(hold[4]);
+                pq.enqueue(patient, priority);
+            }
+            reader.close();
+            fr.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+        }
+
+        updateTable();
+    }
+
+    @FXML
+    void saveFile() {
+        if (fileName == "") {
+            // save as
+            DirectoryChooser dir_chooser = new DirectoryChooser();
+
+            File file = dir_chooser.showDialog(table.getScene().getWindow());
+            fileName = file.getPath();
+
+            // get filename
+            TextInputDialog td = new TextInputDialog("Enter file name. Please don't try any funny stuff here.");
+            td.showAndWait();
+            fileName += "\\"+ td.getEditor().getText() + ".csv";
+
+        }
+            // just normal save
+        System.out.println(fileName);
+
+        try {
+            FileWriter myWriter = new FileWriter(fileName);
+            myWriter.write(priorityQueueToString());
+            myWriter.close();
+            System.out.println("success");
+        } catch(IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    String priorityQueueToString() {
+        String toWrite = "";
+
+        ArrayList<Pair<Patient,Double>> list = pq.getQueue();
+
+        for(int i = 0; i < list.size(); i++){
+            Patient patient = list.get(i).getLeft();
+            double priority = list.get(i).getRight();
+            toWrite += patient.getName() + "," + patient.getAge() + "," + patient.getRegistrationDate() + "," + patient.getDeathDate() + "," + priority + "\n";
+
+        }
+        return toWrite;
+    }
+
 }
