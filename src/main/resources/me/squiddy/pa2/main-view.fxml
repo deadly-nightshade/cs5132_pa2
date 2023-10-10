@@ -27,9 +27,9 @@
                <children>
                   <TableView fx:id="table" layoutX="-5.0" layoutY="-6.0" prefHeight="360.0" prefWidth="584.0" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-4.0" AnchorPane.topAnchor="0.0">
                     <columns>
-                      <TableColumn fx:id="rank" prefWidth="75.0" text="Rank" />
-                      <TableColumn fx:id="info" prefWidth="425.0" text="Patient Information" />
-                        <TableColumn fx:id="priority" text="Priority" />
+                      <TableColumn fx:id="rank" editable="false" prefWidth="75.0" sortable="false" text="Rank" />
+                      <TableColumn fx:id="info" editable="false" prefWidth="425.0" sortable="false" text="Patient Information" />
+                        <TableColumn fx:id="priority" editable="false" sortable="false" text="Priority" />
                     </columns>
                   </TableView>
                </children>
